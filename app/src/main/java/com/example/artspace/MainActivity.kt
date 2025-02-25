@@ -5,7 +5,9 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -30,6 +32,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.VerticalAlignmentLine
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
@@ -59,35 +62,36 @@ fun ArtSpaceLayout() {
         modifier = Modifier.statusBarsPadding()
             .padding(20.dp)
             .safeDrawingPadding(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
     ) {
-        Image(
-            modifier = Modifier.fillMaxWidth()
-                .border(width = 1.dp, color = Color.Red)
-                .padding(horizontal = 20.dp, vertical = 10.dp),
-            painter = painterResource(R.drawable.img),
-            contentDescription = "sunflower"
-        )
-        Spacer(modifier = Modifier.size(10.dp))
+        Surface(modifier = Modifier.wrapContentSize(), shadowElevation = 5.dp) {
+            Image(
+                modifier = Modifier.fillMaxWidth()
+                    .padding(20.dp),
+                painter = painterResource(R.drawable.img),
+                contentDescription = "sunflower"
+            )
+        }
+        Spacer(modifier = Modifier.size(15.dp))
         Column(
-            modifier = Modifier.fillMaxWidth()
-                .border(width = 1.dp, color = Color.Red)
+            modifier = Modifier.fillMaxWidth().background(color = Color.LightGray)
                 .padding(vertical = 10.dp, horizontal = 5.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(text = "Artwork Title", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold, textAlign = TextAlign.Center)
             Text(text = "Artwork Artist (Year)", style = MaterialTheme.typography.titleSmall, textAlign = TextAlign.Center)
         }
-        Spacer(modifier = Modifier.size(10.dp))
+        Spacer(modifier = Modifier.size(15.dp))
         Row(
             modifier = Modifier.fillMaxWidth()
-                .border(width = 1.dp, color = Color.Red)
                 .padding(vertical = 5.dp, horizontal = 10.dp),
-            horizontalArrangement = Arrangement.Center
         ) {
-            Button(modifier = Modifier.wrapContentSize(), onClick = { Log.d("Button", "clicked") }) { }
-            Button(modifier = Modifier.wrapContentSize(), onClick = { Log.d("Button", "clicked") }) { }
+            Button(modifier = Modifier.fillMaxWidth().weight(1.0f), onClick = { Log.d("Button", "clicked") }) {
+                Text(stringResource(id = R.string.previous))
+            }
+            Spacer(modifier = Modifier.size(20.dp))
+            Button(modifier = Modifier.fillMaxWidth().weight(1.0f), onClick = { Log.d("Button", "clicked") }) {
+                Text(stringResource(id = R.string.next))
+            }
         }
     }
 }
