@@ -2,4 +2,10 @@
     <string name="app_name">Art Space</string>
     <string name="previous">Previous</string>
     <string name="next">Next</string>
+    <string name="title_art_0">Sunflower</string>
+    <string name="title_art_1">Nymphéas</string>
+    <string name="title_art_2">Icarus</string>
+    <string name="artist_art_0">Vincent van gogh (1889)</string>
+    <string name="artist_art_1">Oscar-Claude Monet (1919)</string>
+    <string name="artist_art_2">Henri Émile Benoît Matisse (1944)</string>
 </resources>
