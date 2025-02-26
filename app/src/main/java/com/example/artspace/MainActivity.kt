@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -60,6 +61,7 @@ fun ArtSpaceLayout() {
         modifier = Modifier.statusBarsPadding()
             .padding(20.dp)
             .safeDrawingPadding(),
+        verticalArrangement = Arrangement.Center
     ) {
         var currentArtwork by remember { mutableIntStateOf(0) }
         Artwork(currentArtwork)
